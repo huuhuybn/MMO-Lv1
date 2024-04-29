@@ -3,27 +3,25 @@
 <head>
 <!--  thẻ title là bắt buộc phải có, nó sẽ hiển thị ở tiêu đề của trình duyệt. và nội dung trong thẻ title
 sẽ chứa từ khóa và nó là dấu hiệu đầu tiên mà Google sẽ kiểm tra để biết website làm nội dung gì ???
-nên có ít hơn 180 kí tự
--->
-  <title>Pinterest Video Downloader - Best tool dotsaveto download video Pinterest 2024</title>
-  <meta name="description" content="DotSave.app is ">
-  <meta itemprop="image" content="https://dotsave.app/assets/img/snapthumb.jpg">
+nên có ít hơn 180 kí tự -->
+  <title><%= __('title') %></title>
+  <meta name="description" content="<%= __('description') %>">
+  <meta itemprop="image" content="">
 <!--
   Thẻ quy định nội dung hiển thị khi preview trên mạng xã hội Twitter
--->dotsave
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Tiktok Downloader - Download Video tiktok Without Watermark - dotsave">
-  <meta name="twitter:description" content="TikTok Video Downloader - dotsave.App is one of the best free Download video Tiktok No Watermark tool available online. You can download TikTok video from any device you have.">
+-->
+  <meta name="twitter:card" content="<%= __('twitter_card_sumary') %>">
+  <meta name="twitter:title" content="<%= __('twitter_title') %>">
+  <meta name="twitter:description" content="<%= __('twitter_description') %>">
   <meta name="twitter:image:src" content="https://dotsave.app/assets/img/snapthumb.jpg">
-  <meta name="twitter:site" content="dotsave.App">
-
+  <meta name="twitter:site" content="dotsave.app">
   <!--
   Thẻ quy định nội dung hiển thị khi preview trên mạng xã hội Facebook
 -->
-  <meta property="og:title" content="Tiktok Downloader - Download Video tiktok Without Watermark - dotsave">
+  <meta property="og:title" content="<%= __('og_title') %>">
   <meta property="og:type" content="article">
   <meta property="og:image" content="https://dotsave.app/assets/img/snapthumb.jpg">
-  <meta property="og:description" content="TikTok Video Downloader - dotsave.App is one of the best free Download video Tiktok No Watermark tool available online. You can download TikTok video from any device you have.">
+  <meta property="og:description" content="<%= __('og_description') %>">
   <meta property="og:site_name" content="dotsave.App">
 <!-- Quy định icon cho thiết bị iphone-->
   <link rel="apple-touch-icon" sizes="192x192" href="https://dotsave.app/img/icons-192.png">
@@ -64,8 +62,8 @@ nên có ít hơn 180 kí tự
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body class="container text-center">
-<h1 class="text-center">Hello, world!</h1>
-<h2>Welcome to my website</h2>
+<h1 class="text-center"><%= __('h1') %></h1>
+<h2><%= __('h2') %></h2>
 
 
 

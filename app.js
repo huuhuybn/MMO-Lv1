@@ -122,6 +122,8 @@ const fs = require("fs");
 
 var app = express();
 
+app.use(i18n.init);
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -132,7 +134,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
@@ -140,8 +141,8 @@ const language_dict = {};
 glob.sync('./language/*.json').forEach(function (file) {
   let dash = file.split("/");
   console.log(dash)
-  if (dash.length == 3) {
-    let dot = dash[2].split(".");
+  if (dash.length == 2) {
+    let dot = dash[1].split(".");
     if (dot.length == 2) {
       let lang = dot[0];
       fs.readFile(file, function (err, data) {
@@ -150,7 +151,6 @@ glob.sync('./language/*.json').forEach(function (file) {
     }
   }
 });
-
 // viết câu lệnh xử lý khi người dùng truy cập trang chủ
 app.get('/',function (req,res) {
   let lang  = 'en';
@@ -172,13 +172,14 @@ app.get('/:lang',function (req,res,next) {
     console.log(language_dict[code])
     if (code !== '' && language_dict.hasOwnProperty(code)) {
       lang = code;
-      //console.log('AAAA' + lang)
+      console.log('AAAA' + lang)
     } else {
       next(createError(404))
       return
     }
   }
   if (lang == undefined) lang = 'en'
+  i18n.setLocale(req,lang)
   res.render('index', {lang : lang})
 })
 // error handler
