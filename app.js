@@ -186,6 +186,27 @@ app.get('/:lang',function (req,res,next) {
   i18n.setLocale(req,lang)
   res.render('index', {lang : lang})
 })
+
+app.post("/download",function (req,res) {
+  var url = req.body.url
+  if (url === undefined){
+    res.status(404).redirect('/')
+  }
+  // xu ly download
+  //==============
+  const regex = /v=([^&]+)/;
+  const match = url.match(regex);
+  if (match) {
+    const videoId = match[1];
+    console.log(videoId); // Output: GdctBexcfXk
+    res.status(200).render('downloader', { id : videoId,url : url})
+  } else {
+    console.log("Video ID not found");
+    res.status(404).redirect('/')
+  }
+
+
+})
 // error handler
 app.use(function(req, res, next) {
   next(createError(404));
